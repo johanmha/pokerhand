@@ -1,0 +1,7 @@
+{
+  "name": "Pokerhand",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "author": "Johan Haugland <johanhaugl@gmail.com>",
+  "license": "MIT"
+}

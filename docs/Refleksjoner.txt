@@ -1,0 +1,50 @@
+Tanker
+
+- Hvilke avgrensninger skal det være?
+	- Er sort en avhengighet for hvor god en hånd er
+		- Nei sort er ikke rangert https://en.wikipedia.org/wiki/List_of_poker_hands
+	- Er ess lavest eller høyest
+		- Kan være på begge ender av en straight, og ellers antatt som høyeste kort https://en.wikipedia.org/wiki/List_of_poker_hands
+	- Skal det være mer basert på én stokk (kun et av hvert kort) eller antakelse om en uendelig stor stokk (flere av hvert kort, uten endring av sansynlighet)
+		- Nei, det brukes bare en stokk under standard regler. --> Trekning uten tilbakelegging
+		- Må legge inn en begrensning på hvilket kort som kan velges
+			- Metodikk:
+				- Lage en random funksjon for tall fra 0-51. Velge kort basert på en mapping av dette.
+				- Lage en array med tallene fra 0-51 tilfeldig sortert til å representere en tilfeldig stokk. Deretter poppe av kort fra enden av denne, for å representere utdeling av kortene 
+			- Maks antall spillere: 5 (Alle skal ha tilgang på opp til 10 kort hver runde)
+	- Hvis uendelig antall kort antas:
+		- Kan tilfeldig genere fem kort med tilfeldig sort og tilfeldig størrelse. Kan lages med 
+	- Eventuelt mellomting med et gitt antall stokker.
+		- Her kan det da være input mulighet på mengden stokker
+	- Skal det være med eller uten tilbakelegging? (For mulighet til å telle kort)
+		- Dette fremstår nok noe utenfor scope av oppgaven, men bra som en tanke til neste steg
+	- Hva er det langsiktige målet?
+		- En full poker applikasjon
+	- Rammeverk (react) eller vanillaJS
+		- For selve caset er vanillaJS mer enn nok
+		- For en full applikajson kan React være kjekt med tanke på gjennbruk av komponenter
+		- Vil gjøre det til et onlinespill for flere brukere - hvordan? Hvilket restriksjoner gjelder da? Har react eller vaillaJS noen fordeler/ulemper da?
+	- Hvordan skal brukergrensesnittet se ut?
+	- Hvordan kan man legge opp til å spille mot huset eller flere andre CPUer?
+	- Hvordan kan man få til online spill?
+	- Hvordan kan man få til skifte av korte?
+	- Hvordan kan man implementere at en hånd er bedre enn en annen?
+		- Gi hver hånd en verdi basert på hvor god den er og sammenligne dette mot hverandre
+			- Kan ta den første, sammenligne med den neste og beholde den beste + indeksen (eieren/posisjonen til eieren) av denne hånden. Deretter sammenligne med neste hånd ,til det ikke er flere hender. Hvis foldet, er verdien 0
+			- Sammenligning basert på disse 2 variablene
+				1. Hvilken hånd er det (0-x) Hvor 0 er bare hight card og x er straight flush
+				2. Hva er høyeste kort i denne hånden Fra 1 (lav ess) - 14 (høy ess). I en straight eller straight flush kan esset være både laveste og høyeste
+	- Hvordan kan man implementere sammenligning av flere hender enn bare en?
+	- Hvordan kan man implementere betting?
+	- Hvordan kan man implementere stacks/sjetonger?
+	- Hvordan kan man implementere runder med betting og draws?
+
+	
+
+- Hovedoppgave
+	- Stokk stokken
+	- Del ut kort til én spiller
+	- Vurder om dette er en hånd (includert highcard)
+	- Presenter i grensesnitt hånden
+		- Bilde av pokerbord med dine kort som cards nederst til høyre. Andre spillere rundt bordet
+	- Presenter i grensesnittet navnet på hånden
