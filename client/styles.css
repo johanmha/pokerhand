@@ -3,13 +3,15 @@
     flex-wrap: nowrap;
     margin: 1vw 3vw 0 3vw;
     flex-direction: row;
+    font-family: Raleway, sans-serif;
 }
 
 .headline {
     font-size: 3vw;
-    color:darkmagenta;
+    color: #4c3465;
     display: flex;
     flex-grow: 1;
+    font-weight: 800;
 }
 
 .hand {
@@ -19,7 +21,7 @@
 }
 
 .container {
-    background-color: green;
+    background-color: #35654D;
 }
 
 .cards {
@@ -88,4 +90,34 @@
 }
 .spade {
     color: black;
+}
+
+
+.actions {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 1vw 3vw 0 3vw;
+    flex-direction: row;
+    font-family: Raleway, sans-serif;
+}
+
+button {
+    font-size: 3rem;
+    background-color: #654d34;
+    outline: 0;
+    color: #d3c4b4;
+    padding: 0.8vw;
+    border-radius: 1vw;
+    /* border-width: 0.2vw; */
+    /* border-color: #65344d; */
+    /* border-style: solid; */
+}
+
+button:hover {
+    color: #654d34;
+    background-color: #d3c4b4;
+}
+
+button:active {
+    color: #92775b;
 }
