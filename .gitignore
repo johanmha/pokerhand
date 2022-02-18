@@ -1,5 +1,8 @@
 # Node modules
-node-modules
+node_modules
 
 # Build
 dist
+
+# Yarn
+yarn-error.log
