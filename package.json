@@ -1,7 +1,16 @@
 {
-  "name": "Pokerhand",
+  "name": "pokerhand",
   "version": "1.0.0",
-  "main": "server/index.js",
+  "main": "app.js",
   "author": "Johan Haugland <johanhaugl@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
