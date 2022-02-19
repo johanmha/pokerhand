@@ -78,18 +78,18 @@ html body{
     justify-content: right;
 }
 
-.heart {
+.hearts {
     color: darkred;
 }
 
-.diamond {
+.diamonds {
     color: darkred;
 }
 
-.club {
+.clubs {
     color: black;
 }
-.spade {
+.spades {
     color: black;
 }
 
