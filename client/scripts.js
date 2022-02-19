@@ -1,5 +1,11 @@
 
-//Handler
+//Handlers
+//Get hand on pageload
+document.getElementById('main').onload = function() {
+    dealHand()
+}
+
+//Get hand on redraw button click
 document.querySelector('#redraw').addEventListener('click', function (e) {
     e.preventDefault();
     dealHand();
@@ -7,7 +13,14 @@ document.querySelector('#redraw').addEventListener('click', function (e) {
 
 //Main
 function dealHand() {
-    card = cardBuilder('8', 'd')
+    cards = document.querySelector('.cards');
+    card1 = cardBuilder('8', 'd');
+    card2 = cardBuilder('8', 'd');
+    card3 = cardBuilder('8', 'd');
+    card4 = cardBuilder('8', 'd');
+    card5 = cardBuilder('8', 'd');
+
+    cards.append(card1, card2, card3, card4, card5)
 }
 
 // Create card
