@@ -2,17 +2,29 @@
 //Handlers
 //Get hand on pageload
 document.getElementById('main').onload = function() {
-    dealHand()
+    main()
 }
 
 //Get hand on redraw button click
 document.querySelector('#redraw').addEventListener('click', function (e) {
     e.preventDefault();
-    dealHand();
+    main();
 });
 
 //Main
-function dealHand() {
+
+/////This function needs a better name
+function main() {
+    deck = initDeck();
+    deckShuffeled = shuffelDeck(deck);
+
+    hand = dealHand(deckShuffeled);
+
+    //Create function to find value of hand
+    //Create function to show hand value on page
+
+    //Create function whiuch takes hand and visualizes function visualizeHand() (code below)
+
     cards = document.querySelector('.cards');
     card1 = cardBuilder('8', 'd');
     card2 = cardBuilder('8', 'd');
@@ -21,6 +33,29 @@ function dealHand() {
     card5 = cardBuilder('8', 'd');
 
     cards.append(card1, card2, card3, card4, card5)
+}
+
+//Deck helpers
+//Create new deck
+function initDeck() {
+    clubs = ['2k', '3k', '4k', '5k', '6k', '7k', '8k', '9k', 'tk', 'jk', 'qk', 'kk', 'ak'];
+    diamonds = ['2d', '3d', '4d', '5d', '6d', '7d', '8d', '9d', 'td', 'jd', 'qd', 'kd', 'ad'];
+    hearts = ['2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', 'th', 'jh', 'qh', 'kh', 'ah'];
+    spades = ['2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', 'ts', 'js', 'qs', 'ks', 'as'];
+    deck = [...clubs, ...diamonds, ...hearts, ...spades];
+    
+    return deck;
+};
+
+//Shuffel deck
+function shuffelDeck(deck) {
+    let deckShuffeled = [];
+    return deckShuffeled
+};
+
+function dealHand(deckShuffeled) {
+    let hand = [];
+    return hand;
 }
 
 // Create card
@@ -41,9 +76,7 @@ function cardBuilder(value, suite) {
     return card;
 }
 
-
-
-//Helpers
+//Create card helpers
 function getHtmlSuite(suite) {
     let htmlSuite = ''
     let cssSuite = ''
