@@ -2,40 +2,38 @@
 //Handler
 document.querySelector('#redraw').addEventListener('click', function (e) {
     e.preventDefault();
-    console.log('sniksnæk');
     dealHand();
 });
 
-//Helpers
+//Main
 function dealHand() {
-    cardBuilder('8', 'd')
+    card = cardBuilder('8', 'd')
 }
 
+// Create card
 function cardBuilder(value, suite) {
-    let htmlValue = ''
+    //Get value and suite suitable for HTML
+    let [htmlSuite, cssSuite] = getHtmlSuite(suite);
+    let htmlValue = getHtmlValue(value);
+    
+    let cards = document.querySelector('.cards');
+    let card = document.createElement('span');
+    card.classList.add('card');
+
+    let topSection = buildSection('top', cssSuite, htmlSuite, htmlValue);
+    let midSection = buildSection('middle', cssSuite, htmlSuite, htmlValue);
+    let botSection = buildSection('bottom', cssSuite, htmlSuite, htmlValue);
+
+    card.append(topSection, midSection, botSection);
+    return card;
+}
+
+
+
+//Helpers
+function getHtmlSuite(suite) {
     let htmlSuite = ''
     let cssSuite = ''
-
-
-    switch (value) {
-        case 't':
-            htmlValue = '10';
-            break;
-        case 'j':
-            htmlValue = 'J';
-            break;
-        case 'q':
-            htmlValue = 'Q';
-            break;
-        case 'k':
-            htmlValue = 'K';
-            break;
-        case 'a':
-            htmlValue = 'A';
-            break;
-        default:
-            htmlValue = value;
-    }
 
     switch (suite) {
         case 'h':
@@ -59,23 +57,66 @@ function cardBuilder(value, suite) {
             htmlSuite = suite;
             cssSuite = 'spades';
     }
+    return [htmlSuite, cssSuite];
+};
 
-    let cards = document.querySelector('.cards');
-    let card = document.createElement('span');
+function getHtmlValue(value) {
+    let htmlValue = ''
+
+    switch (value) {
+        case 't':
+            htmlValue = '10';
+            break;
+        case 'j':
+            htmlValue = 'J';
+            break;
+        case 'q':
+            htmlValue = 'Q';
+            break;
+        case 'k':
+            htmlValue = 'K';
+            break;
+        case 'a':
+            htmlValue = 'A';
+            break;
+        default:
+            htmlValue = value;
+    }
+    return [htmlValue];
+};
+
+function buildSection(section, cssSuite, htmlSuite, htmlValue) {
     let cardSection = document.createElement('div');
-    let cardTopContainer = document.createElement('div');
-    let cardTop = document.createElement('span');
+    let cardSectionContainer = document.createElement('div');
+    let cardItems = document.createElement('span');
 
-    card.classList.add('card');
-    cardSection.classList.add('card-section');
-    cardTopContainer.classList.add('card-top-container');
-    cardTop.classList.add('card-top');
-
-    cardTop.innerHTML = `
-        <i class="${cssSuite}">${htmlSuite}</i>
-        <i class="value">${htmlValue}</i>
-    `;
-    card.appendChild(cardSection).appendChild(cardTopContainer).appendChild(cardTop);
-    cards.appendChild(card)
-    console.log(card);
-}
+    if (section == 'top' ) {
+        cardSection.classList.add('card-section');
+        cardSectionContainer.classList.add(`card-${section}-container`);
+        cardItems.classList.add(`card-${section}`);
+    
+        cardItems.innerHTML = `
+            <i class="value">${htmlValue}</i>
+            <i class="${cssSuite}">${htmlSuite}</i>
+        `;
+    } else if (section == 'middle') {
+        cardSection.classList.add('card-section');
+        cardSectionContainer.classList.add(`card-${section}-container`);
+        cardItems.classList.add(`card-${section}`);
+    
+        cardItems.innerHTML = `
+            <i class="${cssSuite}">${htmlSuite}</i>
+        `;
+    } else if (section == 'bottom') {
+        cardSection.classList.add('card-section');
+        cardSectionContainer.classList.add(`card-${section}-container`);
+        cardItems.classList.add(`card-${section}`);
+    
+        cardItems.innerHTML = `
+            <i class="${cssSuite}">${htmlSuite}</i>
+            <i class="value">${htmlValue}</i>
+        `;
+    }
+    cardSection.appendChild(cardSectionContainer).appendChild(cardItems)
+    return cardSection
+};
