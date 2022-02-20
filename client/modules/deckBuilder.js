@@ -12,18 +12,20 @@ function initDeck() {
     let hearts = ['2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', 'th', 'jh', 'qh', 'kh', 'ah'];
     let spades = ['2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', 'ts', 'js', 'qs', 'ks', 'as'];
     let deck = [...clubs, ...diamonds, ...hearts, ...spades];
-    
+
     return deck;
 };
 
 //Shuffel deck
 function shuffelDeck(deck) {
-    let deckShuffeled = [];
-    return deckShuffeled
+    let i = deck.length;
+    if (i == 0) return false;
+    while (--i) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let tempi = deck[i];
+        let tempj = deck[j];
+        deck[i] = tempj;
+        deck[j] = tempi;
+    }
+    return deck
 };
-
-function dealHand(deckShuffeled) {
-    let hand = [];
-    return hand;
-}
-

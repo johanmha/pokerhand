@@ -48,3 +48,8 @@ Tanker
 	- Presenter i grensesnitt hånden
 		- Bilde av pokerbord med dine kort som cards nederst til høyre. Andre spillere rundt bordet
 	- Presenter i grensesnittet navnet på hånden
+
+
+Kilder:
+	- Shuffel: (Fisher-Yates shuffel) https://bost.ocks.org/mike/shuffle/
+		- Implementasjon: http://sedition.com/perl/javascript-fy.html
