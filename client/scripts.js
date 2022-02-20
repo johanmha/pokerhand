@@ -1,6 +1,7 @@
-import handBuilder from './modules/handBuilder.js'
-import cardBuilder from './modules/cardBuilder.js'
-import deckBuilder from './modules/deckBuilder.js'
+import handBuilder from './modules/handBuilder.js';
+import cardBuilder from './modules/cardBuilder.js';
+import deckBuilder from './modules/deckBuilder.js';
+import handAnalyzer from './modules/handAnalyzer.js';
 
 //Handlers
 //Get hand on pageload
@@ -24,6 +25,11 @@ function main() {
 
     // create Html of hand/cards
     let cards = document.querySelector('.cards');
+
+    //Find value of hand
+    let handValue = handAnalyzer(hand);
+
+    //Empty hand to replace with new cards
     cards.replaceChildren();
     hand.forEach(cardString => {
         const value = cardString.slice(0,1);
@@ -31,11 +37,4 @@ function main() {
         const card = cardBuilder(value, suite);
         cards.append(card);
     });
-
-    //Create function to find value of hand
-    //Create function to show hand value on page
-
-    //Create function which takes hand and visualizes function visualizeHand() (code below)
-
 }
-
