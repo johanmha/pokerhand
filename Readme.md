@@ -1,5 +1,5 @@
 # Poker hand
-App that gives a pokerhand and evaluates it
+App that gives a pokerhand and evaluates it. Live test on https://pokerhand-21022022.azurewebsites.net/
 
 ## For devloping/testing
 Start dev with npm start
