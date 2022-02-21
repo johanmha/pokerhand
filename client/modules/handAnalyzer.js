@@ -21,16 +21,14 @@ export default function handAnalyzer(hand) {
     //Check for flush
     const flush = checkFlush(suitsArray);
 
-    //check for straight
-    let straight = checkStraight(evalValues);
+    //check for high and low straight
+    const highStraight = checkStraight(evalValues);
 
-    //If there is an ace in the hand, and the hand is not an ace high straight
-    if (lowStraightEvalValues.includes(1) && !straight) {
-        let straight = checkStraight(lowStraightEvalValues);
-        
-        //Set highcard for this special case
-        tempHandValue[1] = straight ? 5 : 0;
-    };
+    const lowStraight = checkStraight(lowStraightEvalValues);
+    //Set highcard for this special case
+    tempHandValue[1] = lowStraight ? 5 : 0;
+
+    const straight = (lowStraight || highStraight) ? true : false;
 
     // Count cards of equal value
     const cardCountValues = countCards(evalValues);

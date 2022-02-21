@@ -21,7 +21,8 @@ function main() {
     const deck = deckBuilder();
 
     //deal hand
-    const hand = handBuilder(deck);
+    // const hand = handBuilder(deck);
+    let hand;
 
     //Find value of hand
     const handValue = handAnalyzer(hand);
@@ -37,16 +38,16 @@ function main() {
         const card = cardBuilder(value, suite);
         cards.append(card);
     });
-
-    const handValueHtml = (handValue[0] == 0) ? 'High card'
-                        : (handValue[0] == 1) ? 'Pair'
-                        : (handValue[0] == 2) ? 'Two pairs'
-                        : (handValue[0] == 3) ? 'Three of a kind'
-                        : (handValue[0] == 4) ? 'Straight'
-                        : (handValue[0] == 5) ? 'Flush'
-                        : (handValue[0] == 6) ? 'Full House'
+    const handValueHtml = (handValue[0] == 8 && handValue[1] == 14) ? 'Royal flush'
+                        : (handValue[0] == 8) ? 'Straight flush'
                         : (handValue[0] == 7) ? 'Four of a kind'
-                        : 'Straight Flush';
+                        : (handValue[0] == 6) ? 'Full House'
+                        : (handValue[0] == 5) ? 'Flush'
+                        : (handValue[0] == 4) ? 'Straight'
+                        : (handValue[0] == 3) ? 'Three of a kind'
+                        : (handValue[0] == 2) ? 'Two pairs'
+                        : (handValue[0] == 1) ? 'Pair'
+                        : 'High card';
 
     //Visualize hand value
     const htmlHand = document.querySelector('.hand');
