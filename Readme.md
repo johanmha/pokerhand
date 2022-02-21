@@ -35,4 +35,24 @@ Suite does not have an impact on the hand but high card does.
 We are assuming play with one standard card deck without any joker cards.
 
 
-In this app we have given the hand a value from 0 to 8, where 8 is the best hand, and 0 is high card, and with a secondary evaluation of high card of the hand. Eg. [4, ]
+In this app we have given the hand a value from 0 to 8, where 8 is the best hand, and 0 is high card, and with a secondary evaluation of high card of the hand. Eg. ['4', '11'] is a straight with high card Jack. 
+
+### Hand evaluation logic
+Check for:
+1. Flush
+2. Straight
+    a. Special case ace low to five straight
+3. Straight flush
+    - If both straight and flush is true
+4. Four of a kind
+5. Three of a kind
+6. Pair
+7. Full House
+    - If both three of a kind and separate pair of a kind
+8. Two pairs
+    - If two separate instances of pair
+9. Find high card
+
+
+## Further ideas
+Note that we have created the structure for comparing hands based on hand value and high card value, as handValue is an array of `[hand, highCard]`. High card value is however not used in current version of app. 
