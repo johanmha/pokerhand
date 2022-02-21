@@ -21,8 +21,7 @@ function main() {
     const deck = deckBuilder();
 
     //deal hand
-    // const hand = handBuilder(deck);
-    let hand;
+    const hand = handBuilder(deck);
 
     //Find value of hand
     const handValue = handAnalyzer(hand);
