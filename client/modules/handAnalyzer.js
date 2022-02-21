@@ -32,8 +32,29 @@ export default function handAnalyzer(hand) {
         else lowStraightEvalValues.push(value);
     });
 
+    //Sort from low to high
+    evalValues.sort(function (a, b) { return(a - b) });
+    lowStraightEvalValues.sort(function (a, b) { return(a - b) });
+    
     //check for straight
     let straight = true;
+    for (let i = 0; i < 4; i++) {
+        if (evalValues[i] != evalValues[i + 1] - 1 ) straight = false;
+    };
+
+    //If there is an ace in the hand, and the hand is not an ace high straight
+    if (lowStraightEvalValues.includes(1) && !straight) {
+        straight = true;
+        for (let i = 0; i < 4; i++) {
+            if (lowStraightEvalValues[i] != lowStraightEvalValues[i + 1] - 1 ) straight = false;
+        };
+    };
+
+    // Count cards of equal value
+    const cardCounter = {};
+    for (let value of evalValues) {
+        cardCounter[value] = (cardCounter[value] || 0) + 1;
+    };
 
     return handValue;
 };
