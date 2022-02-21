@@ -1,5 +1,26 @@
 # Poker hand
+App that gives a pokerhand and evaluates it
 
+## For devloping/testing
+Start dev with npm start
+
+### Structure
+- ./App.js is entrypoint and node server. 
+- ./client/ contains src code
+    - Index.html is single page html. 
+    - Css is style sheet. Should be modulariszed, and possibly done in sass
+    - Scripts is main script module.
+    - /modules/ contains js modules
+        - cardBuilder builds card
+        - deckBuilder creates a shuffeled deck
+        - handBuilder creates an analyzable hand
+        - handAnalyzer finds value of hand
+    - /docs/ contains notes and appendices
+- Readme.md This readme
+- other base project files
+
+
+## Background/assumptions
 ### Ranked list of poker hands with value in app in brackets:
 1. [8] Straight flush
 2. [7] Four of a kind
@@ -53,6 +74,10 @@ Check for:
     - If two separate instances of pair
 9. Find high card
 
+See more assumtions and ideas in ./docs/Refleksjoner.txt
 
 ## Further ideas
 Note that we have created the structure for comparing hands based on hand value and high card value, as handValue is an array of `[hand, highCard]`. High card value is however not used in current version of app. 
+
+Should have unit tests. As of now uses manual hand tests in ./docs/testers.md
+
