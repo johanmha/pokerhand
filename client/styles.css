@@ -108,7 +108,8 @@ button {
     outline: 0;
     color: #d3c4b4;
     padding: 0.8vw;
-    border-radius: 1vw;
+    border-radius: 0.7vw;
+    border-width: 0.15vw;
 }
 
 button:hover {
