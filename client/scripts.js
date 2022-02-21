@@ -18,16 +18,16 @@ document.querySelector('#redraw').addEventListener('click', function (e) {
 //Main
 function main() {
     //get shuffeled deck
-    let deck = deckBuilder();
+    const deck = deckBuilder();
 
     //deal hand
-    let hand = handBuilder(deck);
-
-    // create Html of hand/cards
-    let cards = document.querySelector('.cards');
+    const hand = handBuilder(deck);
 
     //Find value of hand
-    let handValue = handAnalyzer(hand);
+    const handValue = handAnalyzer(hand);
+
+    // create Html of hand/cards
+    const cards = document.querySelector('.cards');
 
     //Empty hand to replace with new cards
     cards.replaceChildren();
@@ -37,4 +37,18 @@ function main() {
         const card = cardBuilder(value, suite);
         cards.append(card);
     });
+
+    const handValueHtml = (handValue[0] == 0) ? 'High card'
+                        : (handValue[0] == 1) ? 'Pair'
+                        : (handValue[0] == 2) ? 'Two pairs'
+                        : (handValue[0] == 3) ? 'Three of a kind'
+                        : (handValue[0] == 4) ? 'Straight'
+                        : (handValue[0] == 5) ? 'Flush'
+                        : (handValue[0] == 6) ? 'Full House'
+                        : (handValue[0] == 7) ? 'Four of a kind'
+                        : 'Straight Flush';
+
+    //Visualize hand value
+    const htmlHand = document.querySelector('.hand');
+    htmlHand.innerHTML = `Hand: ${handValueHtml}` 
 }
